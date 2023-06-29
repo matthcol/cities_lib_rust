@@ -76,6 +76,14 @@ impl TryFrom<&str> for City {
 }
 
 impl City {
+    pub fn new_with_str(name: &str, population: u32, country: &str) -> City {
+        City {
+            name: name.to_string(),
+            population: population,
+            country: country.to_string()
+        }
+    }
+
     pub fn new(name: String, population: u32, country: String) -> City {
         City {
             name: name,
@@ -131,6 +139,14 @@ impl City {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn test_new_with_str(){
+        let city = City::new_with_str("Toulouse", 470000, "France");
+        assert_eq!(city.name, "Toulouse".to_string());
+        assert_eq!(city.population, 470000);
+        assert_eq!(city.country, "France".to_string())
+    }
 
     #[test]
     fn test_try_from_ref_str() {
