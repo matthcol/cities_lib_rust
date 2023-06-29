@@ -1,4 +1,5 @@
 pub mod output;
+pub mod macros;
 
 use core::fmt;
 use std::ops::AddAssign;
